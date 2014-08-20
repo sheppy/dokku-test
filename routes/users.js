@@ -14,8 +14,7 @@ var MessageSchema = new mongoose.Schema({
 });
 
 // Use the schema to register a model with MongoDb
-mongoose.model('Message', MessageSchema); 
-var Message = mongoose.model('Message'); 
+var Message = mongoose.model('Message', MessageSchema); 
 
 
 
@@ -25,7 +24,8 @@ var Message = mongoose.model('Message');
 router.get('/', function(req, res) {
     //res.send('respond with a resource');
   
-    Message.find().sort('date').execFind(function (arr, data) {
+    Message.find(function (err, data) {
+        if (err) return console.error(err);
         res.send(data);
     });
   
