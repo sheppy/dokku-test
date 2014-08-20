@@ -25,7 +25,7 @@ var Message = mongoose.model('Message');
 router.get('/', function(req, res) {
     //res.send('respond with a resource');
   
-    Message.find().sort('date', -1).execFind(function (arr, data) {
+    Message.find().sort('date').execFind(function (arr, data) {
         res.send(data);
     });
   
@@ -36,8 +36,9 @@ router.get('/add', function(req, res) {
     var message = new Message();
     message.message = req.params.message;
     message.date = new Date();
-    message.save(function () {
-        res.send(req.body);
+    message.save(function (err, data) {
+        if (err) return console.error(err);
+        res.send("Added");
     });
 });
 
