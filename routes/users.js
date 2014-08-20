@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/dokku-test');
+mongoose.connect('mongodb://172.17.42.1/dokku-test');
 
 
 
