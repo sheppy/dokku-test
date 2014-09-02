@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
 
 router.get('/add', function(req, res) {
     var message = new Message();
-    message.message = req.params.message;
+    message.message = req.query.message;
     message.date = new Date();
     message.save(function (err, data) {
         if (err) return console.error(err);
