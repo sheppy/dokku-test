@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+var dbUrl = process.env.MONGO_URL || "mongodb://127.0.0.1/dokku-test";
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://172.17.42.1/dokku-test');
+mongoose.connect(dbUrl);
 
 
 
