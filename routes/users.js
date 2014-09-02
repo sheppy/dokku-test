@@ -39,7 +39,7 @@ router.get('/add', function(req, res) {
     message.date = new Date();
     message.save(function (err, data) {
         if (err) return console.error(err);
-        res.send("Added");
+        res.send("Added message: " + message.message);
     });
 });
 
